@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="753.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <TextArea fx:id="nomeArquivos" layoutX="27.0" layoutY="126.0" prefHeight="87.0" prefWidth="637.0" wrapText="true">
+         <cursor>
+            <Cursor fx:constant="V_RESIZE" />
+         </cursor></TextArea>
+      <TextArea layoutX="27.0" layoutY="258.0" prefHeight="216.0" prefWidth="699.0" wrapText="true" />
+      <Text layoutX="27.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imagens Lidas:" />
+      <Text layoutX="211.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total:" />
+      <Text layoutX="27.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resultado:" />
+      <Button layoutX="672.0" layoutY="125.0" mnemonicParsing="false" onAction="#abrirArquivos" prefHeight="42.0" prefWidth="67.0" text="Buscar">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="672.0" layoutY="171.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="67.0" text="Iniciar">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Label id="lblTotal" layoutX="254.0" layoutY="108.0" text="lblTotal" />
+      <Text layoutX="182.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Projeto UTFx">
+         <font>
+            <Font name="Arial Black" size="36.0" />
+         </font>
+      </Text>
+      <Text layoutX="165.0" layoutY="494.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alunos: Gabriel e Jober. 1ª Turma Engenharia de Software UTFPR - Dv" />
+   </children>
+</AnchorPane>
