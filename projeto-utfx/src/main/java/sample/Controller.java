@@ -19,9 +19,14 @@ public class Controller implements Initializable {
     @FXML
     private TextArea nomeArquivos;//Campo com o nome dos arquivos carregados
 
+    @FXML
+    private TextArea consultaWeka;//Campo com o nome dos arquivos carregados
+
     final FileChooser fileChooser = new FileChooser();//Componente buscador de arquivos
 
     List<Imagem> imagensComCores;
+
+    private String[] colunas = {"amarelo", "azulEscuro", "azulClaro", "laranja", "preto", "bege", "branco"};
 
     //Método que inicializa filtros no fileChooser
     public void initialize(URL location, ResourceBundle resources) {
@@ -66,7 +71,33 @@ public class Controller implements Initializable {
     }
 
     public void iniciar(){
+        consultaWeka.clear();
+        consultaWeka.setText(processar().toString());
 
+    }
+
+    public StringBuffer processar(){
+        StringBuffer dados = new StringBuffer();
+        dados.append("@RELATION SIMPSONS\n")
+            .append("@ATTRIBUTE ").append(colunas[0]).append(" NUMERIC\n")
+            .append("@ATTRIBUTE ").append(colunas[1]).append(" NUMERIC\n")
+            .append("@ATTRIBUTE ").append(colunas[2]).append(" NUMERIC\n")
+            .append("@ATTRIBUTE ").append(colunas[3]).append(" NUMERIC\n")
+            .append("@ATTRIBUTE ").append(colunas[4]).append(" NUMERIC\n")
+            .append("@ATTRIBUTE ").append(colunas[5]).append(" NUMERIC\n")
+            .append("@ATTRIBUTE ").append(colunas[6]).append(" NUMERIC\n");
+        dados.append("@DATA\n");
+        if ( imagensComCores != null){
+
+            for (Imagem imagem: imagensComCores) {
+
+            }
+
+
+        }
+
+
+        return dados;
     }
 
 

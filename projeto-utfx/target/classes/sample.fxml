@@ -10,7 +10,7 @@
          <cursor>
             <Cursor fx:constant="V_RESIZE" />
          </cursor></TextArea>
-      <TextArea layoutX="27.0" layoutY="258.0" prefHeight="216.0" prefWidth="699.0" wrapText="true" />
+      <TextArea fx:id="consultaWeka" layoutX="27.0" layoutY="258.0" prefHeight="216.0" prefWidth="699.0" wrapText="true" />
       <Text layoutX="27.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imagens Lidas:" />
       <Text layoutX="211.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total:" />
       <Text layoutX="27.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resultado:" />
@@ -19,7 +19,7 @@
             <Font size="13.0" />
          </font>
       </Button>
-      <Button layoutX="672.0" layoutY="171.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="67.0" text="Iniciar">
+      <Button layoutX="672.0" layoutY="171.0" mnemonicParsing="false" onAction="#iniciar" prefHeight="42.0" prefWidth="67.0" text="Iniciar">
          <font>
             <Font size="13.0" />
          </font>
