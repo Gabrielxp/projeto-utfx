@@ -62,23 +62,21 @@ public class Controller implements Initializable {
         }
 
 
-/*        for (Map.Entry<Color,Integer> pair :colorCountPixels.entrySet()) {
-
-            System.out.println("rgb(" + new DecimalFormat("0").format(pair.getKey().getRed() * 255)
-                    + "," + new DecimalFormat("0").format(pair.getKey().getGreen() * 255)  +
-                    "," + new DecimalFormat("0").format(pair.getKey().getBlue() * 255) +") Qt:" + pair.getValue());
-
-        }*/
-
-
     }
 
+    /**
+     * Metodo para iniciar o processamento.
+     */
     public void iniciar(){
         consultaWeka.clear();
         consultaWeka.setText(processar().toString());
 
     }
 
+    /**
+     * Método de processamento e montagem de relatorio pronto para o WEKA.
+     * @return
+     */
     public StringBuffer processar(){
         StringBuffer dados = new StringBuffer();
         dados.append("@RELATION SIMPSONS\n")
@@ -90,77 +88,69 @@ public class Controller implements Initializable {
             .append("@ATTRIBUTE ").append(colunas[5]).append(" NUMERIC\n")
             .append("@ATTRIBUTE ").append(colunas[6]).append(" NUMERIC\n");
         dados.append("@DATA\n");
-        if ( imagensComCores != null){
 
-            for (Imagem imagem: imagensComCores) {
-                Map<Color, Integer> imagens = imagem.getCorQuantidadeMap();
+        if ( imagensComCores != null){
+            //For que pega as cores e seta no objeto de imagem para o relatorio
+            for (int i = 0; i<imagensComCores.size(); i++) {
+
+                Map<Color, Integer> imagens = imagensComCores.get(i).getCorQuantidadeMap();
                 for (Map.Entry<Color,Integer> pair : imagens.entrySet()) {
                     Integer vermelho =  Integer.parseInt(new DecimalFormat("0").format(pair.getKey().getRed() * 255));
                     Integer verde =  Integer.parseInt(new DecimalFormat("0").format(pair.getKey().getGreen() * 255));
                     Integer azul =  Integer.parseInt(new DecimalFormat("0").format(pair.getKey().getBlue() * 255));
 
-                    //Preencher cor por cor no obg imagem
-/*
-                    if( (vermelho == 239 && verde == 189 && azul == 0)  ||
-                        (vermelho == 0 && verde == 8 && azul == 132)    ||
-                        (vermelho == 0 && verde == 107 && azul == 173)  ||
-                        (vermelho == 247 && verde == 99 && azul == 16)  ||
-                        (vermelho == 189 && verde == 173 && azul == 107)||
-                        (vermelho == 255 && verde == 255 && azul == 255)||
-                        (vermelho == 33 && verde == 33 && azul == 33)){
-                        dados.append(pair.getValue() +", ");
-                    }*/
-
-                  /*  //AzulEscuro
-                    if(vermelho == 0 && verde == 8 && azul == 132){
-                        dados.append(pair.getValue() +", ");
-                    }else{
-                        dados.append("0, ");
+                    //Amarelo
+                    if(vermelho == 239 && verde == 189 && azul == 0){
+                        imagensComCores.get(i).setQtAmarelo(pair.getValue());
                     }
-*/
+
+
+                    //AzulEscuro
+                    if(vermelho == 0 && verde == 8 && azul == 132){
+                        imagensComCores.get(i).setQtAzulEscuro(pair.getValue());
+                    }
+
                     //AzulClaro
-                  /*  if(vermelho == 0 && verde == 107 && azul == 173){
-                        dados.append(pair.getValue() +", ");
-                    }else{
-                        dados.append("0, ");
-                    }*/
+                    if(vermelho == 0 && verde == 107 && azul == 173){
+                        imagensComCores.get(i).setQtAzulClaro(pair.getValue());
+                    }
 
                     //Laranja
-/*                    if(vermelho == 247 && verde == 99 && azul == 16){
-                        dados.append(pair.getValue() +", ");
-                    }else{
-                        dados.append("0, ");
-                    }*/
+                    if(vermelho == 247 && verde == 99 && azul == 16){
+                        imagensComCores.get(i).setQtLaranja(pair.getValue());
+                    }
 
 
                     //Bege
-/*
                     if(vermelho == 189 && verde == 173 && azul == 107){
-                        dados.append(pair.getValue() +", ");
-                    }else{
-                        dados.append("0, ");
+                        imagensComCores.get(i).setQtBege(pair.getValue());
                     }
-*/
 
                     //Branco
-               /*     if(vermelho == 255 && verde == 255 && azul == 255){
-                        dados.append(pair.getValue() +", ");
-                    }else{
-                        dados.append("0, ");
-                    }*/
+                    if(vermelho == 255 && verde == 255 && azul == 255){
+                        imagensComCores.get(i).setQtBranco(pair.getValue());
+                    }
 
                     //PretoClareado
-  /*                  if(vermelho == 33 && verde == 33 && azul == 33){
-                        dados.append(pair.getValue());
-                    }else{
-                        dados.append("0");
-                    }*/
-                    System.out.println("rgb(" + new DecimalFormat("0").format(pair.getKey().getRed() * 255)
-                            + "," + new DecimalFormat("0").format(pair.getKey().getGreen() * 255) +
-                            "," + new DecimalFormat("0").format(pair.getKey().getBlue() * 255) + ") Qt:" + pair.getValue());
-                }
-                dados.append("\n");
+                    if(vermelho == 33 && verde == 33 && azul == 33){
+                        imagensComCores.get(i).setQtPreto(pair.getValue());
+                    }
 
+/*                    System.out.println("rgb(" + new DecimalFormat("0").format(pair.getKey().getRed() * 255)
+                            + "," + new DecimalFormat("0").format(pair.getKey().getGreen() * 255) +
+                            "," + new DecimalFormat("0").format(pair.getKey().getBlue() * 255) + ") Qt:" + pair.getValue());*/
+                }
+
+            }
+            //Conclui a montagem do relatorio
+            for (Imagem imagem: imagensComCores) {
+                dados.append(imagem.getQtAmarelo()).append(", ")
+                     .append(imagem.getQtAzulEscuro()).append(", ")
+                     .append(imagem.getQtAzulClaro()).append(", ")
+                     .append(imagem.getQtLaranja()).append(", ")
+                     .append(imagem.getQtBege()).append(", ")
+                     .append(imagem.getQtBranco()).append(", ")
+                     .append(imagem.getQtPreto()).append("\n");
             }
 
 

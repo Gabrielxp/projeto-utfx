@@ -6,18 +6,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * Objeto que representa as imagens e algumas caracteristicas.
  * Criado por Gabriel de Paula em 20/06/2017.
  */
 public class Imagem {
 
-    private Integer qtAmarelo;
-    private Integer qtLaranja;
-    private Integer qtAzulClaro;
-    private Integer qtAzulEscuro;
-    private Integer qtPreto;
-    private Integer qtBege;
-    private Integer qtBranco;
-
+    private Integer qtAmarelo = 0;
+    private Integer qtLaranja = 0;
+    private Integer qtAzulClaro = 0;
+    private Integer qtAzulEscuro = 0;
+    private Integer qtPreto = 0;
+    private Integer qtBege = 0;
+    private Integer qtBranco = 0;
+    private Integer amareloClaro = 0;
 
 
     private String caminho;

@@ -14,7 +14,12 @@ import java.util.List;
  * Criado por Gabriel de Paula em 20/06/2017.
  */
 public class Converter {
-
+    /**
+     * Conversor de Files para ImageFx.
+     * @param files
+     * @param descricaoBuffer
+     * @return
+     */
     public static List<Image> fileToImages(List<File> files, StringBuffer descricaoBuffer){
 
         List<Image> imagens = new ArrayList<Image>();
@@ -27,6 +32,11 @@ public class Converter {
         return imagens;
     }
 
+    /**
+     * Conversor de ImageFx to Image.
+     * @param imagensParaProcessar
+     * @return
+     */
     public static List<Imagem> converterFxImagetoImagem(List<Image> imagensParaProcessar){
         List<Imagem> imagensComCoresExtraidas = new ArrayList<Imagem>();
 
