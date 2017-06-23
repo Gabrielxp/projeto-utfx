@@ -1,4 +1,4 @@
-# projeto-utfx
+# PROJETO-UTFX
 Projeto Utfx 
 
 # Autores
@@ -20,13 +20,21 @@ A aplicação lê as imagens, extrai as cores pré-definidas e monta a base de d
 (A princípio ela gera dados com fotos do Homer e Bart)
 
 Tendo como atributos:
+
 @ATTRIBUTE amarelo NUMERIC
+
 @ATTRIBUTE azulEscuro NUMERIC
+
 @ATTRIBUTE azulClaro NUMERIC
+
 @ATTRIBUTE laranja NUMERIC
+
 @ATTRIBUTE bege NUMERIC
+
 @ATTRIBUTE branco NUMERIC
+
 @ATTRIBUTE pretoClareado NUMERIC
+
 @ATTRIBUTE personagem NUMERIC
 
 Foi utilizada a api do javafx para resolver o problema.
