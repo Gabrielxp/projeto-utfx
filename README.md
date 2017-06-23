@@ -19,5 +19,6 @@ A aplicação lê as imagens, extrai as cores pré-definidas e monta a base de d
 (A princípio ela gera dados com fotos do Homer e Bart)
 
 Foi utilizada a api do javafx para resolver o problema.
+![stack Overflow](http://prntscr.com/fnfgoeg)
 
 
