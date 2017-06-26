@@ -60,7 +60,7 @@ public class Converter {
             }
 
             imagensComCoresExtraidas.add(imagemProcessada);
-
+            imagemProcessada.setNome(image.impl_getUrl());
         }
         return imagensComCoresExtraidas;
     }

@@ -20,17 +20,24 @@ public class Imagem {
     private Integer qtBranco = 0;
     private Integer amareloClaro = 0;
 
-
-    private String caminho;
+    private String nome;
 
     private Map<Color, Integer> corQuantidadeMap;
 
-    public String getCaminho() {
-        return caminho;
+    public Integer getAmareloClaro() {
+        return amareloClaro;
     }
 
-    public void setCaminho(String caminho) {
-        this.caminho = caminho;
+    public void setAmareloClaro(Integer amareloClaro) {
+        this.amareloClaro = amareloClaro;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public Map<Color, Integer> getCorQuantidadeMap() {

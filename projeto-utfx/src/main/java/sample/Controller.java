@@ -2,6 +2,7 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
@@ -24,6 +25,9 @@ public class Controller implements Initializable {
 
     @FXML
     private TextArea consultaWeka;//Campo com o nome dos arquivos carregados
+
+    @FXML
+    private CheckBox treinoCheckBox;
 
     final FileChooser fileChooser = new FileChooser();//Componente buscador de arquivos
 
@@ -87,6 +91,9 @@ public class Controller implements Initializable {
             .append("@ATTRIBUTE ").append(colunas[4]).append(" NUMERIC\n")
             .append("@ATTRIBUTE ").append(colunas[5]).append(" NUMERIC\n")
             .append("@ATTRIBUTE ").append(colunas[6]).append(" NUMERIC\n");
+
+        dados.append("@ATTRIBUTE ").append("personagem").append(" NUMERIC\n");
+
         dados.append("@DATA\n");
 
         if ( imagensComCores != null){
@@ -150,7 +157,17 @@ public class Controller implements Initializable {
                      .append(imagem.getQtLaranja()).append(", ")
                      .append(imagem.getQtBege()).append(", ")
                      .append(imagem.getQtBranco()).append(", ")
-                     .append(imagem.getQtPreto()).append("\n");
+                     .append(imagem.getQtPreto());
+                    if(treinoCheckBox.isSelected()){
+                        if(imagem.getNome().contains("bart")){
+                            dados.append(",0");
+                        }else{
+                            dados.append(",1");
+                        }
+                    }else{
+                        dados.append(", ?");
+                    }
+                    dados.append("\n");
             }
 
 
